@@ -21991,6 +21991,7 @@ Add Business Integration Mapping adds locations to integrations and set them act
 
 # Group Change Logs
 
+* <b>07/03/2026</b> - Updated `mainBusinessDescription` and microsite `internalListing.description` fields in Create, Update and Get Listing APIs to be optional instead of required, with support for clearing the existing value by sending an empty string (V2BIRD-1690).
 * <b>06/10/2026</b> - Updated Get Contact API to support an optional `experienceScore` boolean field in the request body (default: false). When set to true, the response includes the customer's experience score and source.
 * <b>05/25/2026</b> - Added Update Custom card (PUT) and Delete Custom card (DELETE) API documentation under the Business profile custom card section.
 * <b>05/11/2026</b> - Added support for backdated survey responses in the POST Survey Response API. The `created` field (UTC Epoch milliseconds) is optional; if omitted, the server defaults to the current UTC timestamp.
