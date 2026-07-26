@@ -20245,7 +20245,7 @@ The Get Hotel Attributes API fetches the list of applicable hotel attributes con
                             `MULTI_SELECT` — value must be a comma-separated string of one or more `name` values from possibleValues (e.g. languagesSpoken: "English,Spanish,French"). Use the `name` field, not the `value` code.
                         + possibleValues (array) - The list of accepted values for this attribute. Empty for free-form types (BOOLEAN, INTEGER, YEAR, TIME). Non-empty for SINGLE_SELECT and MULTI_SELECT types — only listed values are accepted.
                             + (object)
-                                + value (string, boolean) - An accepted value. Boolean for BOOLEAN type; string for SINGLE_SELECT and MULTI_SELECT types.
+                                + value (string) - An accepted value. For BOOLEAN type attributes the value is a boolean (true/false); for SINGLE_SELECT and MULTI_SELECT type attributes the value is a string.
                                 + name: Available (string) - Human-readable label for the value.
 
     + Body
