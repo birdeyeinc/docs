@@ -17329,7 +17329,7 @@ Create Listing API publishes information on online listing sources. We post pres
             + googleDescription (string) - An ‘about your business’ description. Google description cannot be more than 750 characters.
             + attributes (object) - Google my business attributes are highly visible statements about your business that appear on your Google My Business listing. Supported attributes are
                     Accessibility,Amenities,Crowd,Dining options,Highlights,Planning,Offerings,Health & safety.
-            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attributes are Services, Policies and payments, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, ViewsFromUnit.
+            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attribute categories are Services, Policies, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, Property. Each attribute carries an `attributeValueType` that defines the expected value format: `BOOLEAN` (true/false), `INTEGER` (positive number), `YEAR` (year string), `TIME` (HH:mm string), `SINGLE_SELECT` (one value from possibleValues), or `MULTI_SELECT` (comma-separated values from possibleValues). Use the Get Hotel Attributes API to retrieve the full list of supported attributes, their types, and possible values for the business.
             + foodDelivery (string) - Enter the redirect URL where customers can place delivery orders.This field is applicable for hospitality business and is category dependent.Example http://www.ubereats.com
             + foodTakeout (string) - Enter the redirect URL where customers can place 'takeout' food orders. This field is applicable for hospitality business and is category dependent.Example : http://www.ubereats.com
             + whatsappBusinessLink (string) - Enter your WhatsApp Business link to display a direct chat option on your live Google Business Profile. This allows customers to easily message you. Example https://wa.me/<yourphonenumber>
@@ -17837,6 +17837,57 @@ crossbusiness.family_kids.kids_playarea, crossbusiness.barservice.happyhour Cros
                         ]
                     },
                     "hotelAttributes": {
+                        "business": {
+                            "business": {
+                                "meetingRoomsCount": {
+                                    "attributeId": "meetingRoomsCount",
+                                    "attributeName": "Number of meeting rooms",
+                                    "value": 20
+                                }
+                            }
+                        },
+                        "policies": {
+                            "policies": {
+                                "checkinTime": {
+                                    "attributeId": "checkinTime",
+                                    "attributeName": "Check-In Time",
+                                    "value": "14:00"
+                                },
+                                "checkoutTime": {
+                                    "attributeId": "checkoutTime",
+                                    "attributeName": "Check-Out Time",
+                                    "value": "11:00"
+                                }
+                            }
+                        },
+                        "property": {
+                            "property": {
+                                "builtYear": {
+                                    "attributeId": "builtYear",
+                                    "attributeName": "Built Year",
+                                    "value": 2010
+                                }
+                            }
+                        },
+                        "services": {
+                            "services": {
+                                "frontDesk": {
+                                    "attributeId": "frontDesk",
+                                    "attributeName": "Front desk",
+                                    "value": true
+                                },
+                                "giftShop": {
+                                    "attributeId": "giftShop",
+                                    "attributeName": "Gift shop",
+                                    "value": false
+                                },
+                                "languagesSpoken": {
+                                    "attributeId": "languagesSpoken",
+                                    "attributeName": "Languages Spoken",
+                                    "value": "English,Spanish,French"
+                                }
+                            }
+                        },
                         "sustainability": {
                             "energyEfficiency": {
                                 "energyConservationProgram": {
@@ -18167,7 +18218,7 @@ The Update Listing API will update the location details on all your listings sit
             + googleDescription (string) - An ‘about your business’ description. Google description cannot be more than 750 characters.
             + attributes (object) - Google my business attributes are highly visible statements about your business that appear on your Google My Business listing. Supported attributes are
                     Accessibility,Amenities,Crowd,Dining options,Highlights,Planning,Offerings,Health & safety.
-            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attributes are Services, Policies and payments, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, ViewsFromUnit.
+            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attribute categories are Services, Policies, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, Property. Each attribute carries an `attributeValueType` that defines the expected value format: `BOOLEAN` (true/false), `INTEGER` (positive number), `YEAR` (year string), `TIME` (HH:mm string), `SINGLE_SELECT` (one value from possibleValues), or `MULTI_SELECT` (comma-separated values from possibleValues). Use the Get Hotel Attributes API to retrieve the full list of supported attributes, their types, and possible values for the business.
             + foodDelivery (string) - Enter the redirect URL where customers can place delivery orders.This field is applicable for hospitality business and is category dependent.Example http://www.ubereats.com
             + foodTakeout (string) - Enter the redirect URL where customers can place 'takeout' food orders. This field is applicable for hospitality business and is category dependent.Example : http://www.ubereats.com
             + whatsappBusinessLink (string) - Enter your WhatsApp Business link to display a direct chat option on your live Google Business Profile. This allows customers to easily message you. Example https://wa.me/<yourphonenumber>
@@ -18675,6 +18726,57 @@ The Update Listing API will update the location details on all your listings sit
                         ]
                     },
                     "hotelAttributes": {
+                        "business": {
+                            "business": {
+                                "meetingRoomsCount": {
+                                    "attributeId": "meetingRoomsCount",
+                                    "attributeName": "Number of meeting rooms",
+                                    "value": 20
+                                }
+                            }
+                        },
+                        "policies": {
+                            "policies": {
+                                "checkinTime": {
+                                    "attributeId": "checkinTime",
+                                    "attributeName": "Check-In Time",
+                                    "value": "14:00"
+                                },
+                                "checkoutTime": {
+                                    "attributeId": "checkoutTime",
+                                    "attributeName": "Check-Out Time",
+                                    "value": "11:00"
+                                }
+                            }
+                        },
+                        "property": {
+                            "property": {
+                                "builtYear": {
+                                    "attributeId": "builtYear",
+                                    "attributeName": "Built Year",
+                                    "value": 2010
+                                }
+                            }
+                        },
+                        "services": {
+                            "services": {
+                                "frontDesk": {
+                                    "attributeId": "frontDesk",
+                                    "attributeName": "Front desk",
+                                    "value": true
+                                },
+                                "giftShop": {
+                                    "attributeId": "giftShop",
+                                    "attributeName": "Gift shop",
+                                    "value": false
+                                },
+                                "languagesSpoken": {
+                                    "attributeId": "languagesSpoken",
+                                    "attributeName": "Languages Spoken",
+                                    "value": "English,Spanish,French"
+                                }
+                            }
+                        },
                         "sustainability": {
                             "energyEfficiency": {
                                 "energyConservationProgram": {
@@ -19008,7 +19110,7 @@ The Get Listing API will get the listing information for the given business numb
             + googleDescription (string) - An ‘about your business’ description. Google description cannot be more than 750 characters.
             + attributes (object) - Google my business attributes are highly visible statements about your business that appear on your Google My Business listing. Supported attributes are
                     Accessibility,Amenities,Crowd,Dining options,Highlights,Planning,Offerings,Health & safety.
-            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attributes are Services, Policies and payments, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, ViewsFromUnit.
+            + hotelAttributes (object) - Hotel attributes are key characteristics and amenities of your property that help guests discover and understand what your hotel offers. These attributes enhance your hotel's visibility and searchability across booking platforms and travel sites. Supported attribute categories are Services, Policies, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, Property. Each attribute carries an `attributeValueType` that defines the expected value format: `BOOLEAN` (true/false), `INTEGER` (positive number), `YEAR` (year string), `TIME` (HH:mm string), `SINGLE_SELECT` (one value from possibleValues), or `MULTI_SELECT` (comma-separated values from possibleValues). Use the Get Hotel Attributes API to retrieve the full list of supported attributes, their types, and possible values for the business.
             + foodDelivery (string) - Enter the redirect URL where customers can place delivery orders.This field is applicable for hospitality business and is category dependent.Example http://www.ubereats.com
             + foodTakeout (string) - Enter the redirect URL where customers can place 'takeout' food orders. This field is applicable for hospitality business and is category dependent.Example : http://www.ubereats.com
             + whatsappBusinessLink (string) - Enter your WhatsApp Business link to display a direct chat option on your live Google Business Profile. This allows customers to easily message you. Example https://wa.me/<yourphonenumber>
@@ -19517,6 +19619,57 @@ The Get Listing API will get the listing information for the given business numb
                         ]
                     },
                     "hotelAttributes": {
+                        "business": {
+                            "business": {
+                                "meetingRoomsCount": {
+                                    "attributeId": "meetingRoomsCount",
+                                    "attributeName": "Number of meeting rooms",
+                                    "value": 20
+                                }
+                            }
+                        },
+                        "policies": {
+                            "policies": {
+                                "checkinTime": {
+                                    "attributeId": "checkinTime",
+                                    "attributeName": "Check-In Time",
+                                    "value": "14:00"
+                                },
+                                "checkoutTime": {
+                                    "attributeId": "checkoutTime",
+                                    "attributeName": "Check-Out Time",
+                                    "value": "11:00"
+                                }
+                            }
+                        },
+                        "property": {
+                            "property": {
+                                "builtYear": {
+                                    "attributeId": "builtYear",
+                                    "attributeName": "Built Year",
+                                    "value": 2010
+                                }
+                            }
+                        },
+                        "services": {
+                            "services": {
+                                "frontDesk": {
+                                    "attributeId": "frontDesk",
+                                    "attributeName": "Front desk",
+                                    "value": true
+                                },
+                                "giftShop": {
+                                    "attributeId": "giftShop",
+                                    "attributeName": "Gift shop",
+                                    "value": false
+                                },
+                                "languagesSpoken": {
+                                    "attributeId": "languagesSpoken",
+                                    "attributeName": "Languages Spoken",
+                                    "value": "English,Spanish,French"
+                                }
+                            }
+                        },
                         "sustainability": {
                             "energyEfficiency": {
                                 "energyConservationProgram": {
@@ -20076,17 +20229,24 @@ The Get Hotel Attributes API fetches the list of applicable hotel attributes con
 + Response 200
 
     + Attributes
-        + hotelAttributes (object) - This is a dynamic field. Depends upon the hotel attributes supported for the selected business.
+        + hotelAttributes (object) - This is a dynamic field. Depends upon the hotel attributes supported for the selected business. Supported categories are Services, Policies, FoodAndDrink, Pools, Wellness, Activities, Transportation, Families, Connectivity, Business, Accessibility, Pets, Parking, Housekeeping, HealthAndSafety, Sustainability, Property.
             + services (object)
                 + services (object)
                     + frontDesk (object)
                         + attributeId: frontDesk (string) - Attribute Id.
                         + attributeName: Front desk (string) - Attribute display name.
                         + columnId: 20001 (number) - Internal column identifier.
-                        + possibleValues (array) - Contains the list of possible values for the attribute.
+                        + attributeValueType: BOOLEAN (string) - Defines the data type of the value to provide when setting this attribute. Possible enum values:
+                            `BOOLEAN` — value must be `true` or `false` (e.g. frontDesk, parkingAvailable).
+                            `INTEGER` — value must be a positive integer (e.g. meetingRoomsCount, roomsCount, floorsCount, restaurantsCount, maxChildAge, maxKidsStayFreeCount).
+                            `YEAR` — value must be a 4-digit year string (e.g. builtYear, lastRenovatedYear).
+                            `TIME` — value must be a time string in HH:mm format (e.g. checkinTime: "14:00", checkoutTime: "11:00").
+                            `SINGLE_SELECT` — value must be a single string chosen from possibleValues.
+                            `MULTI_SELECT` — value must be a comma-separated string of one or more `name` values from possibleValues (e.g. languagesSpoken: "English,Spanish,French"). Use the `name` field, not the `value` code.
+                        + possibleValues (array) - The list of accepted values for this attribute. Empty for free-form types (BOOLEAN, INTEGER, YEAR, TIME). Non-empty for SINGLE_SELECT and MULTI_SELECT types — only listed values are accepted.
                             + (object)
-                                + value: true (boolean) - Possible attribute value.
-                                + name: Available (string) - Attribute value display name.
+                                + value (string) - An accepted value. For BOOLEAN type attributes the value is a boolean (true/false); for SINGLE_SELECT and MULTI_SELECT type attributes the value is a string.
+                                + name: Available (string) - Human-readable label for the value.
 
     + Body
 
@@ -20097,32 +20257,472 @@ The Get Hotel Attributes API fetches the list of applicable hotel attributes con
                             "frontDesk": {
                                 "attributeId": "frontDesk",
                                 "attributeName": "Front desk",
-                                "possibleValues": [
-                                    {
-                                        "value": true,
-                                        "name": "Available"
-                                    },
-                                    {
-                                        "value": false,
-                                        "name": "Not Available"
-                                    }
-                                ],
-                                "columnId": 20001
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20001,
+                                "attributeValueType": "BOOLEAN"
                             },
                             "twentyFourHourFrontDesk": {
                                 "attributeId": "twentyFourHourFrontDesk",
                                 "attributeName": "Twenty four hour front desk",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20002,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "concierge": {
+                                "attributeId": "concierge",
+                                "attributeName": "Concierge",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20003,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "elevator": {
+                                "attributeId": "elevator",
+                                "attributeName": "Lift",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20004,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "baggageStorage": {
+                                "attributeId": "baggageStorage",
+                                "attributeName": "Baggage storage",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20005,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "fullServiceLaundry": {
+                                "attributeId": "fullServiceLaundry",
+                                "attributeName": "Full service laundry",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20006,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "selfServiceLaundry": {
+                                "attributeId": "selfServiceLaundry",
+                                "attributeName": "Self service laundry",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20007,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "socialHour": {
+                                "attributeId": "socialHour",
+                                "attributeName": "Social hour",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20008,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "wakeUpCalls": {
+                                "attributeId": "wakeUpCalls",
+                                "attributeName": "Wake up calls",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20009,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "convenienceStore": {
+                                "attributeId": "convenienceStore",
+                                "attributeName": "Grocery shop",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20010,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "giftShop": {
+                                "attributeId": "giftShop",
+                                "attributeName": "Gift shop",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20011,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "currencyExchange": {
+                                "attributeId": "currencyExchange",
+                                "attributeName": "Currency exchange",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20012,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "languagesSpoken": {
+                                "attributeId": "languagesSpoken",
+                                "attributeName": "Languages Spoken",
                                 "possibleValues": [
-                                    {
-                                        "value": true,
-                                        "name": "Available"
-                                    },
-                                    {
-                                        "value": false,
-                                        "name": "Not Available"
-                                    }
+                                    {"value": "ar", "name": "Arabic"},
+                                    {"value": "yue", "name": "Cantonese"},
+                                    {"value": "nl", "name": "Dutch"},
+                                    {"value": "en", "name": "English"},
+                                    {"value": "fil", "name": "Filipino"},
+                                    {"value": "fr", "name": "French"},
+                                    {"value": "de", "name": "German"},
+                                    {"value": "hi", "name": "Hindi"},
+                                    {"value": "id", "name": "Indonesian"},
+                                    {"value": "it", "name": "Italian"},
+                                    {"value": "ja", "name": "Japanese"},
+                                    {"value": "ko", "name": "Korean"},
+                                    {"value": "zh", "name": "Mandarin"},
+                                    {"value": "pt", "name": "Portuguese"},
+                                    {"value": "ru", "name": "Russian"},
+                                    {"value": "es", "name": "Spanish"},
+                                    {"value": "vi", "name": "Vietnamese"}
                                 ],
-                                "columnId": 20002
+                                "columnId": 20170,
+                                "attributeValueType": "MULTI_SELECT"
+                            }
+                        }
+                    },
+                    "policies": {
+                        "policies": {
+                            "kidsStayFree": {
+                                "attributeId": "kidsStayFree",
+                                "attributeName": "Children stay free",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20013,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "smokeFreeProperty": {
+                                "attributeId": "smokeFreeProperty",
+                                "attributeName": "Smoke free property",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20014,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "allInclusiveAvailable": {
+                                "attributeId": "allInclusiveAvailable",
+                                "attributeName": "All inclusive available",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20015,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "allInclusiveOnly": {
+                                "attributeId": "allInclusiveOnly",
+                                "attributeName": "All inclusive only",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20016,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "checkinTime": {
+                                "attributeId": "checkinTime",
+                                "attributeName": "Check-In Time",
+                                "possibleValues": [],
+                                "columnId": 20173,
+                                "attributeValueType": "TIME"
+                            },
+                            "checkoutTime": {
+                                "attributeId": "checkoutTime",
+                                "attributeName": "Check-Out Time",
+                                "possibleValues": [],
+                                "columnId": 20174,
+                                "attributeValueType": "TIME"
+                            },
+                            "maxKidsStayFreeCount": {
+                                "attributeId": "maxKidsStayFreeCount",
+                                "attributeName": "Kids per room count",
+                                "possibleValues": [],
+                                "columnId": 20175,
+                                "attributeValueType": "INTEGER"
+                            },
+                            "maxChildAge": {
+                                "attributeId": "maxChildAge",
+                                "attributeName": "Kids age limit",
+                                "possibleValues": [],
+                                "columnId": 20176,
+                                "attributeValueType": "INTEGER"
+                            }
+                        },
+                        "paymentOptions": {
+                            "cash": {
+                                "attributeId": "cash",
+                                "attributeName": "Cash",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20017,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "cheque": {
+                                "attributeId": "cheque",
+                                "attributeName": "Cheque",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20018,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "creditCard": {
+                                "attributeId": "creditCard",
+                                "attributeName": "Credit card",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20019,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "debitCard": {
+                                "attributeId": "debitCard",
+                                "attributeName": "Debit card",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20020,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "mobileNfc": {
+                                "attributeId": "mobileNfc",
+                                "attributeName": "NFC mobile payments",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20021,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "foodAndDrink": {
+                        "foodAndDrink": {
+                            "roomService": {
+                                "attributeId": "roomService",
+                                "attributeName": "Room service",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20022,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "twentyFourHourRoomService": {
+                                "attributeId": "twentyFourHourRoomService",
+                                "attributeName": "Twenty four hour room service",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20023,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "restaurant": {
+                                "attributeId": "restaurant",
+                                "attributeName": "Restaurant",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20024,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "breakfastAvailable": {
+                                "attributeId": "breakfastAvailable",
+                                "attributeName": "Breakfast available",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20029,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "freeBreakfast": {
+                                "attributeId": "freeBreakfast",
+                                "attributeName": "Free breakfast",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20030,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "bar": {
+                                "attributeId": "bar",
+                                "attributeName": "Bar",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20031,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "restaurantsCount": {
+                                "attributeId": "restaurantsCount",
+                                "attributeName": "Number of restaurants",
+                                "possibleValues": [],
+                                "columnId": 20171,
+                                "attributeValueType": "INTEGER"
+                            }
+                        }
+                    },
+                    "pools": {
+                        "pools": {
+                            "indoorPool": {
+                                "attributeId": "indoorPool",
+                                "attributeName": "Indoor pool",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20033,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "pool": {
+                                "attributeId": "pool",
+                                "attributeName": "Pool",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20034,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "outdoorPool": {
+                                "attributeId": "outdoorPool",
+                                "attributeName": "Outdoor pool",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20035,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "hotTub": {
+                                "attributeId": "hotTub",
+                                "attributeName": "Hot tub",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20036,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "waterPark": {
+                                "attributeId": "waterPark",
+                                "attributeName": "Water park",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20042,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "wellness": {
+                        "wellness": {
+                            "fitnessCenter": {
+                                "attributeId": "fitnessCenter",
+                                "attributeName": "Fitness center",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20044,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "spa": {
+                                "attributeId": "spa",
+                                "attributeName": "Spa",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20050,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "sauna": {
+                                "attributeId": "sauna",
+                                "attributeName": "Sauna",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20053,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "activities": {
+                        "activities": {
+                            "tennis": {
+                                "attributeId": "tennis",
+                                "attributeName": "Tennis",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20060,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "golf": {
+                                "attributeId": "golf",
+                                "attributeName": "Golf",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20061,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "beachAccess": {
+                                "attributeId": "beachAccess",
+                                "attributeName": "Beach access",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20069,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "privateBeach": {
+                                "attributeId": "privateBeach",
+                                "attributeName": "Private beach",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20070,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "transportation": {
+                        "transportation": {
+                            "airportShuttle": {
+                                "attributeId": "airportShuttle",
+                                "attributeName": "Airport shuttle",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20073,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "freeAirportShuttle": {
+                                "attributeId": "freeAirportShuttle",
+                                "attributeName": "Free airport shuttle",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20074,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "families": {
+                        "families": {
+                            "babysitting": {
+                                "attributeId": "babysitting",
+                                "attributeName": "Babysitting",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20079,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "kidsClub": {
+                                "attributeId": "kidsClub",
+                                "attributeName": "Kids club",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20081,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "connectivity": {
+                        "connectivity": {
+                            "freeWifi": {
+                                "attributeId": "freeWifi",
+                                "attributeName": "Free wifi",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20083,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "wifiAvailable": {
+                                "attributeId": "wifiAvailable",
+                                "attributeName": "Wifi available",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20084,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "business": {
+                        "business": {
+                            "businessCenter": {
+                                "attributeId": "businessCenter",
+                                "attributeName": "Business center",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20087,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "meetingRooms": {
+                                "attributeId": "meetingRooms",
+                                "attributeName": "Meeting rooms",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20088,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "meetingRoomsCount": {
+                                "attributeId": "meetingRoomsCount",
+                                "attributeName": "Number of meeting rooms",
+                                "possibleValues": [],
+                                "columnId": 20172,
+                                "attributeValueType": "INTEGER"
+                            }
+                        }
+                    },
+                    "accessibility": {
+                        "accessibility": {
+                            "mobilityAccessible": {
+                                "attributeId": "mobilityAccessible",
+                                "attributeName": "Mobility accessible",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20089,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "mobilityAccessibleParking": {
+                                "attributeId": "mobilityAccessibleParking",
+                                "attributeName": "Accessible parking",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20090,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "pets": {
+                        "pets": {
+                            "petsAllowed": {
+                                "attributeId": "petsAllowed",
+                                "attributeName": "Pets allowed",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20093,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "dogsAllowed": {
+                                "attributeId": "dogsAllowed",
+                                "attributeName": "Dogs allowed",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20095,
+                                "attributeValueType": "BOOLEAN"
                             }
                         }
                     },
@@ -20131,17 +20731,75 @@ The Get Hotel Attributes API fetches the list of applicable hotel attributes con
                             "parkingAvailable": {
                                 "attributeId": "parkingAvailable",
                                 "attributeName": "Parking available",
-                                "possibleValues": [
-                                    {
-                                        "value": true,
-                                        "name": "Available"
-                                    },
-                                    {
-                                        "value": false,
-                                        "name": "Not Available"
-                                    }
-                                ],
-                                "columnId": 20097
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20097,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "freeParking": {
+                                "attributeId": "freeParking",
+                                "attributeName": "Free parking",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20098,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "valetParkingAvailable": {
+                                "attributeId": "valetParkingAvailable",
+                                "attributeName": "Valet parking available",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20101,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "electricCarChargingStations": {
+                                "attributeId": "electricCarChargingStations",
+                                "attributeName": "EV charger",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20103,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "housekeeping": {
+                        "housekeeping": {
+                            "housekeepingAvailable": {
+                                "attributeId": "housekeepingAvailable",
+                                "attributeName": "Housekeeping available",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20104,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "dailyHousekeeping": {
+                                "attributeId": "dailyHousekeeping",
+                                "attributeName": "Daily housekeeping",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20105,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        }
+                    },
+                    "healthAndSafety": {
+                        "enhancedCleaning": {
+                            "commonAreasEnhancedCleaning": {
+                                "attributeId": "commonAreasEnhancedCleaning",
+                                "attributeName": "Common areas enhanced cleaning",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20107,
+                                "attributeValueType": "BOOLEAN"
+                            },
+                            "guestRoomsEnhancedCleaning": {
+                                "attributeId": "guestRoomsEnhancedCleaning",
+                                "attributeName": "Guest rooms enhanced cleaning",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20108,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        },
+                        "minimizedContact": {
+                            "contactlessCheckinCheckout": {
+                                "attributeId": "contactlessCheckinCheckout",
+                                "attributeName": "Contactless checkin checkout",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20124,
+                                "attributeValueType": "BOOLEAN"
                             }
                         }
                     },
@@ -20150,20 +20808,53 @@ The Get Hotel Attributes API fetches the list of applicable hotel attributes con
                             "energyConservationProgram": {
                                 "attributeId": "energyConservationProgram",
                                 "attributeName": "Energy conservation program",
-                                "possibleValues": [
-                                    {
-                                        "value": true,
-                                        "name": "Available"
-                                    },
-                                    {
-                                        "value": false,
-                                        "name": "Not Available"
-                                    }
-                                ],
-                                "columnId": 20134
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20134,
+                                "attributeValueType": "BOOLEAN"
+                            }
+                        },
+                        "wasteReduction": {
+                            "recyclingProgram": {
+                                "attributeId": "recyclingProgram",
+                                "attributeName": "Recycling program",
+                                "possibleValues": [{"value": true, "name": "Available"}, {"value": false, "name": "Not Available"}],
+                                "columnId": 20146,
+                                "attributeValueType": "BOOLEAN"
                             }
                         }
-                    }
+                    },
+                    "property": {
+                        "property": {
+                            "builtYear": {
+                                "attributeId": "builtYear",
+                                "attributeName": "Built Year",
+                                "possibleValues": [],
+                                "columnId": 20177,
+                                "attributeValueType": "YEAR"
+                            },
+                            "lastRenovatedYear": {
+                                "attributeId": "lastRenovatedYear",
+                                "attributeName": "Last Renovated Year",
+                                "possibleValues": [],
+                                "columnId": 20178,
+                                "attributeValueType": "YEAR"
+                            },
+                            "roomsCount": {
+                                "attributeId": "roomsCount",
+                                "attributeName": "Rooms Count",
+                                "possibleValues": [],
+                                "columnId": 20179,
+                                "attributeValueType": "INTEGER"
+                            },
+                            "floorsCount": {
+                                "attributeId": "floorsCount",
+                                "attributeName": "Floors Count",
+                                "possibleValues": [],
+                                "columnId": 20180,
+                                "attributeValueType": "INTEGER"
+                            }
+                        }
+                    },
                 }
             }
 
@@ -21991,6 +22682,7 @@ Add Business Integration Mapping adds locations to integrations and set them act
 
 # Group Change Logs
 
+* <b>07/31/2026</b> - Extended hotel attributes support in Create, Update, and Get Listing APIs and Get Hotel Attributes API: added Property category (builtYear, roomsCount, floorsCount, lastRenovatedYear); added attributeValueType field to Get Hotel Attributes response with enum values BOOLEAN, INTEGER, YEAR, TIME, SINGLE_SELECT, MULTI_SELECT; updated supported category list.
 * <b>07/03/2026</b> - Updated `mainBusinessDescription` and microsite `internalListing.description` fields in Create, Update and Get Listing APIs to be optional instead of required, with support for clearing the existing value by sending an empty string (V2BIRD-1690).
 * <b>06/10/2026</b> - Updated Get Contact API to support an optional `experienceScore` boolean field in the request body (default: false). When set to true, the response includes the customer's experience score and source.
 * <b>05/25/2026</b> - Added Update Custom card (PUT) and Delete Custom card (DELETE) API documentation under the Business profile custom card section.
