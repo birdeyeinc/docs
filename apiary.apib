@@ -10980,6 +10980,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                      "customerId":123456,
                      "customerName":"Anonymous",
                      "ticketed":false,
+                     "source":"Email",
                      "ticketIds": [
                         100770,
                         100751
@@ -10987,6 +10988,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                      "answers":[
                         {
                            "questionTitle":"We are interested in receiving your feedback. \nabout the care provided at our facility. \n\nPlease take a few minutes to rate your satisfaction with each of the following\n\nPlease describe ur properties.",
+                           "questionId":101,
                            "questionType":"label",
                            "visible":true,
                            "conditional":false,
@@ -10999,6 +11001,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Single CHoice",
+                           "questionId":102,
                            "questionType":"radio",
                            "visible":true,
                            "conditional":false,
@@ -11012,6 +11015,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Multiple choice q",
+                           "questionId":103,
                            "questionType":"checkbox",
                            "visible":true,
                            "conditional":false,
@@ -11025,6 +11029,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Multiple Text Entry edited",
+                           "questionId":104,
                            "questionType":"textarea",
                            "visible":true,
                            "conditional":false,
@@ -11038,6 +11043,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Single TExt Entry edited",
+                           "questionId":105,
                            "questionType":"text",
                            "visible":true,
                            "conditional":false,
@@ -11051,6 +11057,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Drop Down edited",
+                           "questionId":106,
                            "questionType":"dropdown",
                            "visible":true,
                            "conditional":false,
@@ -11064,6 +11071,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Please rate us based on your experience Rating Question edited",
+                           "questionId":107,
                            "questionType":"rating",
                            "visible":true,
                            "conditional":true,
@@ -11077,6 +11085,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Please rate us for the below mentioned services Matrix Drop Down edited",
+                           "questionId":108,
                            "questionType":"matrixdropdown",
                            "visible":true,
                            "conditional":false,
@@ -11089,6 +11098,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                            "childAnswers":[
                               {
                                  "questionTitle":"Click to write statement 1",
+                                 "questionId":201,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11102,6 +11112,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                               },
                               {
                                  "questionTitle":"Click to write statement 2",
+                                 "questionId":202,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11115,6 +11126,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                               },
                               {
                                  "questionTitle":"Click to write statement 3",
+                                 "questionId":203,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11128,6 +11140,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                               },
                               {
                                  "questionTitle":"Click to write statement 4",
+                                 "questionId":204,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11141,6 +11154,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                               },
                               {
                                  "questionTitle":"Click to write statement 5",
+                                 "questionId":205,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11154,6 +11168,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                               },
                               {
                                  "questionTitle":"Click to write statement",
+                                 "questionId":206,
                                  "questionType":"dropdown",
                                  "visible":true,
                                  "conditional":false,
@@ -11169,6 +11184,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"How likely are you to recommend us to your family and friends NPS edited?",
+                           "questionId":109,
                            "questionType":"nps",
                            "visible":true,
                            "conditional":false,
@@ -11182,6 +11198,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                         },
                         {
                            "questionTitle":"Matrix Radio Choice editedf",
+                           "questionId":110,
                            "questionType":"matrixradio",
                            "visible":true,
                            "conditional":false,
@@ -11194,6 +11211,7 @@ List Responses for a Survey API fetches all the responses available for a partic
                            "childAnswers":[
                               {
                                  "questionTitle":"Click to write statement A",
+                                 "questionId":301,
                                  "questionType":"radio",
                                  "visible":true,
                                  "conditional":false,
@@ -11887,6 +11905,93 @@ Update Survey Settings helps update the survey page appearance settings like Log
 + Response 400
 
     [2096][]
+
+## Get Survey Usage by Location [/v1/survey/{surveyId}/usage/by-location]
+Get Survey Usage by Location API provides usage data per location for a given survey, including sent count and response rate by location. Results are paginated and sorted by response count in descending order by default.
+
+### Get Survey Usage by Location [POST]
+
++ Parameters
+    + surveyId: 8013 (integer, required) - Id of the Survey.
+
++ Request (application/json)
+
+    + Headers
+
+            x-business-number: 166255873971050
+            x-api-key: [Required] Partner specific API key provided by Birdeye for data exchange.
+            time-zone-id: UTC
+            Content-Type: application/json
+            Accept: application/json
+
+    + Attributes
+        + startDate: "2024-08-12 8:43:07" (string, optional) - Start date for filtering in ISO 8601 format.
+        + endDate: "2026-08-12 8:43:07" (string, optional) - End date for filtering in ISO 8601 format.
+
+    + Body
+
+            {
+                "startDate": "2024-08-12 8:43:07",
+                "endDate": "2026-08-12 8:43:07"
+            }
+
++ Response 200
+
+    + Body
+
+            {
+                "surveyName": "ARA| healthcare survey",
+                "dataPoints": [
+                    {
+                        "count": 120,
+                        "partial": 30,
+                        "complete": 90,
+                        "audience": 200,
+                        "opened": 150,
+                        "clicked": 130,
+                        "responseRate": 60.0,
+                        "businessId": 100077184,
+                        "locationName": "Electric Heroes"
+                    },
+                    {
+                        "count": 85,
+                        "partial": 20,
+                        "complete": 65,
+                        "audience": 150,
+                        "opened": 110,
+                        "clicked": 95,
+                        "responseRate": 56.67,
+                        "businessId": 100139870,
+                        "locationName": "US location 1"
+                    }
+                ],
+                "totalCount": 205,
+                "partial": 50,
+                "complete": 155,
+                "page": 0,
+                "size": 500,
+                "totalPages": 1,
+                "partialPercent": 24.39,
+                "completePercent": 75.61,
+                "surveyId": 8013
+            }
+
++ Response 400
+
+    [1315][]
+
++ Response 401
+
+    [1161][]
+
++ Response 404
+
+    [1011][]
+
++ Response 429
+
+    [89][]
+
 
 # Group Business Media
 Add, delete and manage business media.
@@ -21991,6 +22096,7 @@ Add Business Integration Mapping adds locations to integrations and set them act
 
 # Group Change Logs
 
+* <b>08/13/2026</b> - Added Get Survey Usage by Location API (`POST /v1/survey/{surveyId}/usage/by-location`) under Survey group. Updated List Responses API response to include `source` field and `questionId` in each answer object.
 * <b>07/03/2026</b> - Updated `mainBusinessDescription` and microsite `internalListing.description` fields in Create, Update and Get Listing APIs to be optional instead of required, with support for clearing the existing value by sending an empty string (V2BIRD-1690).
 * <b>06/10/2026</b> - Updated Get Contact API to support an optional `experienceScore` boolean field in the request body (default: false). When set to true, the response includes the customer's experience score and source.
 * <b>05/25/2026</b> - Added Update Custom card (PUT) and Delete Custom card (DELETE) API documentation under the Business profile custom card section.
