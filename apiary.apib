@@ -10921,6 +10921,8 @@ Post a survey response API submits the survey response for a particular survey u
 ## List Responses [/v1/survey/ext/list/responses/{survey_id}{?businessNumber,page,size,sortby,sorder,includeTicketId}]
 List Responses for a Survey API fetches all the responses available for a particular survey ID.
 
+> __Note__
+> - _By default, Deep Pagination with record window (page x size) greater than 100k is not supported. Either reduce the page/size combination to be less than or equal to 100k, or pass `deepPagination: true` in the request body to fetch beyond this limit._
 
 ### List Responses for a Survey [POST]
 
@@ -10944,12 +10946,14 @@ List Responses for a Survey API fetches all the responses available for a partic
     + Attributes
         + startDate: "MM/dd/yyyy HH:mm:ss" (string, optional) - Start date.
         + endDate: "MM/dd/yyyy HH:mm:ss" (string, optional) - End date.
+        + deepPagination: false (boolean, optional) - Set to true to allow paging beyond the standard pagination limit (page x size greater than 100k). Default is false.
 
     + Body
 
             {
                 "startDate" : "07/03/2018 06:30:00",
-                "endDate" : "07/23/2018 06:45:00"
+                "endDate" : "07/23/2018 06:45:00",
+                "deepPagination": true
             }
 
 
@@ -21783,6 +21787,7 @@ Add Business Integration Mapping adds locations to integrations and set them act
 
 # Group Change Logs
 
+* <b>09/02/2026</b> - Added `deepPagination` flag support in the List Responses for a Survey API to allow fetching survey responses beyond the standard 100k record pagination limit.
 * <b>05/25/2026</b> - Added Update Custom card (PUT) and Delete Custom card (DELETE) API documentation under the Business profile custom card section.
 * <b>05/11/2026</b> - Added support for backdated survey responses in the POST Survey Response API. The `created` field (UTC Epoch milliseconds) is optional; if omitted, the server defaults to the current UTC timestamp.
 * <b>04/22/2026</b> - Provide subLocality field support in Get, Create and Update Listings APIs for NZ Locations.
